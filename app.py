@@ -1,8 +1,5 @@
-from flask import Flask, render_template, url_for
-
-
-app = Flask(__name__)
-
+from flask import (render_template, url_for)
+from models import db, portfolio, app 
 
 @app.route('/')
 def index():
@@ -31,4 +28,5 @@ def portfolio_page():
 
 
     if __name__ == '__main__':
+        db.create_all()
         app.run(debug=True, port=8000, host='127.0.0.1')
